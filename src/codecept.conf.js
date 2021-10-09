@@ -5,7 +5,7 @@ exports.config = {
     Puppeteer: {   // テストドライバーはPuppeteerを使用
       get url() {
         const ENVIRONMENTS = require('./conf/environments.js');
-        return ENVIRONMENTS.TWITTER_URL
+        return ENVIRONMENTS.URL
       },
       show: true,
       "chrome":{
@@ -54,7 +54,7 @@ exports.config = {
       // 画面に変化がないようなものは省略した方がテストが速くなる。
       ignoreSteps: [
         "seeInPopup*",
-        "wait*",
+        // "wait*",
         "grab*",
         // "fill*", // text入力系。fullPageScreenshots: true にするなら テスト時間との兼ね合いで調整した方がよいかもしれない。
       ],
