@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  codeceptjs:
+    build:
+      context: ./docker/
+      args:
+        - TZ=${TZ}
+        - CODECEPTJS_VERSION=${CODECEPTJS_VERSION:-3.0.7}
+    environment:
+      HOST_PWD: "${PWD:-.}"
+      REPORT_DIR: "${REPORT_DIR:-./reports}"
+      NODE_OPTIONS: "--max-old-space-size=6144"
+    volumes:
+      - "./conf:/tests/conf"
+      - "${HOST_PWD:-.}/src:/tests"
+      - "${REPORT_DIR:-./reports}:/tests/reports"
+    mem_limit: 6g
+    memswap_limit: 6g
+    working_dir: /tests
+    network_mode: "host"
+    init: true

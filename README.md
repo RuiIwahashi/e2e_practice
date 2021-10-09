@@ -1,2 +1,2 @@
 # e2e_practice
-test
+CodeceptJSで色々やってみる
