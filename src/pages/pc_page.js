@@ -1,4 +1,5 @@
 const { I, CREDENTIALS, ENVIRONMENTS, TEST_CARDS } = inject();
+const mysql = require('mysql');
 
 module.exports = {
   async openFujiyaTopPage() {
@@ -20,4 +21,16 @@ module.exports = {
     await I.click(SortType);
     await I.waitForText(SortType, 10);
   },
+
+  async insertData(data) {
+    let connection = mysql.createConnection({
+      host     : 'localhost',
+      user     : 'docker',
+      password : 'docker',
+      database: 'test_database'
+    });
+    connection.query("insert into test_table set ?",{name:data[0],price:data[1]},function
+    (error,results,fields){
+    });
+  }
 };

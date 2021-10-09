@@ -1,5 +1,6 @@
 .env
 /reports/**
+/db/data/**
 /src/reports/**
 /conf/**
 /logs/*

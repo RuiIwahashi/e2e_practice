@@ -16,10 +16,16 @@ Scenario('Fujiya Avic の中古ヘッドホン(価格の高い順)で商品名�
 
   // 中古ヘッドホンの機種名と価格を指定のカウント数取得する(取得順序は上から順番)
   for (let i = 1; i <= count; i++) {
+    let data = []
     // 機種名
     console.log(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/a/div[2]`));
+    data.push(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/a/div[2]`));
+
     // 価格
     console.log(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/div[3]/div[2]/div`));
+    data.push(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/div[3]/div[2]/div`));
+    console.log(data);
+    PageObject.insertData(data);
   }
 
 }).tag('@fujiya').tag('@get_product');

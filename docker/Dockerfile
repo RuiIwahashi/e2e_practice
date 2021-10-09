@@ -22,4 +22,4 @@ ENV LANG="ja_JP.UTF-8" \
 
 ENV NODE_PATH /usr/lib/node_modules:/codecept/node_modules
 
-RUN npm install -g iconv-lite --unsafe-perm=true
+RUN npm install -g mysql --unsafe-perm=true
