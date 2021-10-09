@@ -18,13 +18,13 @@ Scenario('Fujiya Avic の中古ヘッドホン(価格の高い順)で商品名�
   for (let i = 1; i <= count; i++) {
     let data = []
     // 機種名
-    console.log(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/a/div[2]`));
     data.push(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/a/div[2]`));
-
     // 価格
-    console.log(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/div[3]/div[2]/div`));
     data.push(await I.grabTextFrom(`//div[1]/div[2]/div/main/div/ul/li/dl[${i}]/dd/div[3]/div[2]/div`));
+
+    // 登録するデータ
     console.log(data);
+    // DBに登録する
     PageObject.insertData(data);
   }
 
